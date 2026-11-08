@@ -27,4 +27,4 @@ jobs:
       - name: Run the Python program
         env:
           WHO_TO_GREET: 'GitHub Actions Student'
-          run: python hello.py
+        run: python hello.py
