@@ -13,15 +13,33 @@ on:
 
 # Define the jobs
 jobs:
+ # First job: Ubuntu
   hello-python:
-    name: Run the Python Hello World program
-    # Operating system for the runner
+    name: Run Python on Ubuntu
     runs-on: ubuntu-latest
 
-    # Download repository files 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+
+      - name: Run the Python program
+        env:
+          WHO_TO_GREET: 'GitHub Actions Student'
+        run: python hello.py
+
+  # Second job: Windows
+  hello-python-windows:
+    name: Run Python on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Run the Python program
+        env:
+          WHO_TO_GREET: 'GitHub Actions Student'
+        run: python hello.py
 
       # Execute the Python program
       - name: Run the Python program
